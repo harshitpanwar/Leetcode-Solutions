@@ -16,12 +16,10 @@ public:
         vector<int> mp(26);
         
         mp[labels[cur]-'a']=1;
-        
+        vector<int> temp(26);
         for(auto i:g[cur]){
             
             if(i!=prev){
-                
-                vector<int> temp(26);
                 temp = dfs(g, labels, i, cur, ans);
                 mp = mergemap(mp, temp);
                 
