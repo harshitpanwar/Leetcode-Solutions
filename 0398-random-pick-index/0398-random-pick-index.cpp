@@ -10,7 +10,7 @@ public:
     
     int pick(int target) {
         
-        if(mp[target].size()==1)return mp[target][0];
+        // if(mp[target].size()==1)return mp[target][0];
         
         return mp[target][0+rand()%(mp[target].size())];
         
