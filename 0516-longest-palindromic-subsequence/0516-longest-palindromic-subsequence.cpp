@@ -1,15 +1,23 @@
 class Solution {
 public:
-    int memo[1000][1000] = {};
-    int longestPalindromeSubseq(const string& s) {
-        return dp(s, 0, s.size() - 1);
+    
+    int f(int l, int r, string &s, vector<vector<int>> &dp){
+        
+        if(l==r) return 1;
+        if(l>r) return 0;
+        
+        if(dp[l][r]) return dp[l][r];
+        
+        if(s[l]==s[r]) return dp[l][r] = 2 + f(l+1, r-1, s, dp);
+        return  dp[l][r] = max(f(l+1, r, s, dp), f(l, r-1, s, dp));
+        
     }
-    int dp(const string& s, int l, int r) {
-        if (l > r) return 0; // Return 0 since it's empty string
-        if (l == r) return 1; // Return 1 since it has 1 character
-        if (memo[l][r] != 0) return memo[l][r];
-        if (s[l] == s[r])
-            return memo[l][r] = dp(s, l+1, r-1) + 2;
-        return memo[l][r] = max(dp(s, l+1, r), dp(s, l, r-1));
+    
+    int longestPalindromeSubseq(string s) {
+        
+        int n = s.size();
+        vector<vector<int>> dp(n, vector<int>(n));
+        return f(0, n-1, s, dp);
+        
     }
 };
