@@ -9,7 +9,9 @@ public:
         while(!maxh.empty()){
             
             int a=0, b=0;
-            if(!maxh.empty()) a = maxh.top();maxh.pop();
+            a = maxh.top();
+            maxh.pop();
+            
             if(!maxh.empty()) b = maxh.top();
             else return a;
             maxh.pop();
