@@ -21,7 +21,7 @@ public:
             
         }
         
-        return 0;
+        return maxh.top();
         
         
     }
