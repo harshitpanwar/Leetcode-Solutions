@@ -7,10 +7,11 @@ public:
         
         for(int i=0;i<nums.size();i++){
             prefix[i] = (i>0?prefix[i-1]:1) * nums[i];
+            suffix[n-i-1] = (n-i-1<n-1?suffix[n-i]:1) * nums[n-i-1];
         }
-        for(int i=n-1;i>=0;i--){
-            suffix[i] = (i<n-1?suffix[i+1]:1) * nums[i];
-        }
+        // for(int i=n-1;i>=0;i--){
+            // suffix[n-i-1] = (n-i-1<n-1?suffix[n-i]:1) * nums[n-i-1];
+        // }
         
         
         
